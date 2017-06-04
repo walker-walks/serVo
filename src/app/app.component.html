@@ -1,0 +1,21 @@
+<div>
+  <md-toolbar color="primary">
+    <span><md-icon>mood</md-icon></span>
+
+    <span>serVo!</span>
+  </md-toolbar>
+  <md-menu x-position="before" menu="mdMenu">
+    <button md-menu-item>Option 1</button>
+    <button md-menu-item>Option 2</button>
+  </md-menu>
+
+  <md-card>
+    <button md-raised-button (click)="vibrate()">Vibrate</button>
+    <md-slide-toggle [(ngModel)]="servo.LEDs[0]" (change)="changeLED('0')">LED:1 </md-slide-toggle>
+    <md-slide-toggle [(ngModel)]="servo.LEDs[1]" (change)="changeLED('1')">LED:2 </md-slide-toggle><br>
+    <md-slider
+      [min]="-50" [max]="50" [ngModel]="servo.angle">
+    </md-slider>
+    {{servo.angle}}
+  </md-card>
+</div>
