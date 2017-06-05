@@ -2,6 +2,7 @@
 
 let
   state = {
+    device: false,
     LEDs: [false, true],
     angle: 0
   },
@@ -12,7 +13,8 @@ module.exports = {
   connect,
   vibrate,
   changeLED,
-  changeAngle
+  changeAngle,
+  IoTConnected
 }
 
 
@@ -25,6 +27,11 @@ function init(ioHandler){
 
 function connect(data){
   io.sockets.emit('Servo: connect', state);
+}
+
+function IoTConnected(data){
+  console.log(data);
+  state.device = true;
 }
 
 function vibrate(data){
